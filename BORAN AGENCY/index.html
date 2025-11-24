@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>BORAN AGENCY </title>
+<link rel="icon" type="image/png" href="img/logo.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #050505;
+      --bg-darker: #020202;
+      --gray: #8c8c8c;
+      --accent: #f5f5f5;
+    }/* --- HOVER EFEKTLERİ --- */
+#services div[style*="background:#111"],
+#works div[style*="background:#111"] {
+  transition: all 0.3s ease;
+}
+
+#services div[style*="background:#111"]:hover,
+#works div[style*="background:#111"]:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: #444;
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #1c1c1c 0, #000 60%);
+      color: var(--accent);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+    /* NAVBAR */
+    .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 40px 24px; /* sağa ve sola 40px boşluk eklendi */
+}
+
+    }
+    .logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transform: translateY(0px); /* logoyu biraz aşağı çeker */
+}
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px; /* logo ve yazı arası */
+}
+
+.logo-box {
+  width: 150px;
+  height: 90px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+.logo-box img {
+  width: auto;
+  max-height: 80px;
+}
+
+.logo-text-main {
+  font-size: 20px; /* Yazıyla orantılı */
+  letter-spacing: 0.18em;
+}
+
+.logo-text-sub {
+  font-size: 12px;
+}
+
+
+  .logo-box {
+  width: 140px;       /* daha geniş kutu */
+  height: 80px;       /* biraz daha yüksek */
+  border-radius: 12px;
+  background: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.logo-box img {
+  max-height: 65px;   /* logo büyüdü */
+}
+
+.logo-box img {
+  max-height: 70px;
+}
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+    }
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gray);
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-cta {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #2e2e2e;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: linear-gradient(135deg, #111, #050505);
+      cursor: pointer;
+    }
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 40px;
+      align-items: center;
+      padding-top: 20px;
+    }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hero-kicker {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .hero-title span {
+      color: var(--gray);
+      font-weight: 300;
+    }
+    .hero-sub {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--gray);
+      max-width: 420px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #2e2e2e;
+      font-size: 11px;
+      padding: 6px 12px;
+      color: var(--gray);
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      align-items: center;
+    }
+    .hero-btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 10px 20px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f5f5f5, #d6d6d6);
+      color: #050505;
+      font-weight: 600;
+    }
+    .hero-btn-ghost {
+      border-radius: 999px;
+      border: 1px solid #2e2e2e;
+      padding: 10px 18px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      background: transparent;
+      color: var(--gray);
+    }
+    .hero-note {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 6px;
+    }
+    /* HERO RIGHT */
+    .hero-card {
+      border-radius: 24px;
+      border: 1px solid #272727;
+      background: radial-gradient(circle at top left, #191919, #020202 60%);
+      padding: 20px 20px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric {
+      padding: 10px 10px 9px;
+      border-radius: 16px;
+      border: 1px solid #2f2f2f;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent);
+    }
+    .metric-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+    .metric-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .metric-sub {
+      font-size: 10px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gray);
+    }
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #19ff9f;
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .hero-mini {
+      font-size: 10px;
+      color: var(--gray);
+      text-align: right;
+    }
+  </style>
+<style>
+/* --- FADE-IN ANİMASYONU --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+/* --- FADE-IN ANİMASYONU --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="nav">
+  <div class="logo-wrap">
+    <div class="logo-box">
+      <img src="img/logo.png" alt="BORAN AGENCY Logo" />
+    </div>
+    <div>
+      <div class="logo-text-main">BORAN AGENCY</div>
+      <div class="logo-text-sub">creative digital studio</div>
+    </div>
+  </div>
+
+  <nav class="nav-links">
+    <a href="#services">Hizmetler</a>
+    <a href="#works">Projeler</a>
+    <a href="#contact">İletişim</a>
+  </nav>
+
+  <button class="nav-cta">TEKLİF AL</button>
+</header>
+
+
+
+    <!-- HERO -->
+    <main class="hero">
+      <section>
+        <div class="hero-kicker">BORAN AGENCY • DİJİTAL REKLAM & TASARIM</div>
+        <h1 class="hero-title">
+          Markanı <span>sessiz bırakma.</span><br />
+          Biz <span>konuştururuz.</span>
+        </h1>
+        <p class="hero-sub">
+          Sosyal medya yönetimi, performans reklamları ve kreatif tasarım ile
+          BORAN AGENCY markan için uçtan uca dijital ajans deneyimi sunar.
+        </p>
+
+        <div class="hero-tags">
+          <span class="pill">Instagram & TikTok Yönetimi</span>
+          <span class="pill">Meta & Google Ads</span>
+          <span class="pill">Kurumsal Kimlik</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <button class="hero-btn-primary">Hemen Başlayalım</button>
+          <button class="hero-btn-ghost">Portföyü Gör</button>
+        </div>
+        <p class="hero-note">
+          2025’te 10+ marka ile çalıştık. Sırada sen varsın.
+        </p>
+      </section>
+
+      <aside class="hero-card">
+        <div class="hero-card-header">
+          <span>Performans Özeti</span>
+          <span>Q4 • BORAN AGENCY</span>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="metric-label">Reklam Geliri</div>
+            <div class="metric-value">+312%</div>
+            <div class="metric-sub">6 ay ortalaması</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Dönüşüm</div>
+            <div class="metric-value">4,9x</div>
+            <div class="metric-sub">ROAS</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Topluluk</div>
+            <div class="metric-value">+83K</div>
+            <div class="metric-sub">Yeni takipçi</div>
+          </div>
+        </div>
+        <div class="hero-card-footer">
+          <div class="hero-badge">
+            <span class="hero-dot"></span>
+            Gerçek zamanlı raporlama
+          </div>
+          <div class="hero-mini">
+            Aylık anlaşma, proje bazlı<br />
+            veya kampanya paketi.
+          </div>
+        </div>
+      </aside>
+    </main>
+<!-- PROJELER -->
+<section id="works" style="padding:100px 0; background:#050505;">
+  <div style="max-width:1200px; margin:auto; padding:0 40px; text-align:center;">
+    <h2 style="font-size:36px; letter-spacing:2px; text-transform:uppercase; margin-bottom:60px; color:#f5f5f5;">
+      Projelerimiz
+    </h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px;">
+      
+     
+
+      <div style="background:#111; border-radius:14px; overflow:hidden; border:1px solid #2a2a2a; cursor:pointer; transition:all 0.3s ease;">
+        <img src="img/project2.jpg" alt="Proje 2" style="width:100%; height:200px; object-fit:cover;">
+        <div style="padding:20px; text-align:left;">
+          <h3 style="color:white; font-size:18px; margin-bottom:8px;">Yapıkaya Bulvar 80</h3>
+          <p style="color:#b5b5b5; font-size:13px;">Gayrimenkul tanıtımı ve dijital kampanya yönetimi.</p>
+        </div>
+      </div>
+
+      <div style="background:#111; border-radius:14px; overflow:hidden; border:1px solid #2a2a2a; cursor:pointer; transition:all 0.3s ease;">
+        <img src="img/project3.jpg" alt="Proje 3" style="width:100%; height:200px; object-fit:cover;">
+        <div style="padding:20px; text-align:left;">
+          <h3 style="color:white; font-size:18px; margin-bottom:8px;">Özbilgin Yapı Dijital Lansmanı</h3>
+          <p style="color:#b5b5b5; font-size:13px;">Kurumsal showroom tanıtımı, sosyal medya reklam kampanyası ve kreatif tasarım süreci.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<footer style="background:#050505; border-top:1px solid #1c1c1c; padding:50px 0; color:#ccc; font-size:14px;">
+  <div style="max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+    
+    <!-- SOL: LOGO -->
+    <div style="flex:1; min-width:200px;">
+      <img src="img/logo.png" alt="BORAN AGENCY Logo" style="max-width:100px; background:white; padding:8px; border-radius:8px;">
+    </div>
+    
+    <!-- ORTA: İLETİŞİM -->
+    <div style="flex:1; min-width:200px; text-align:center;">
+      <p style="margin:0;">📍 Denizli, Türkiye</p>
+      <p style="margin:5px 0;">📞 0544 716 72 97</p>
+      <p style="margin:0;">✉️ <a href="mailto:info@boranagency.com" style="color:#aaa; text-decoration:none;">info@boranagency.com</a></p>
+    </div>
+    
+    <!-- SAĞ: SOSYAL MEDYA -->
+    <div style="flex:1; min-width:200px; text-align:right;">
+      <a href="#" style="margin-right:10px; color:#ccc; text-decoration:none;">Instagram</a>
+      <a href="#" style="margin-right:10px; color:#ccc; text-decoration:none;">LinkedIn</a>
+      <a href="#" style="color:#ccc; text-decoration:none;">E-Posta</a>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:#777; font-size:12px; margin-top:30px;">© 2025 BORAN AGENCY — Tüm Hakları Saklıdır.</p>
+</footer>
+<!-- İLETİŞİM -->
+<section id="contact" class="fade-in" style="padding:100px 0; background:#0a0a0a;">
+  <div style="max-width:1000px; margin:auto; padding:0 40px;">
+    <h2 style="font-size:36px; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; color:#f5f5f5; text-align:center;">
+      İletişim
+    </h2>
+
+    <p style="color:#b5b5b5; font-size:16px; margin-bottom:30px; text-align:center;">
+      Markan için birlikte çalışalım. Formu doldur, sana dönüş yapalım.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:40px; margin-top:30px;">
+
+      <!-- Sol blok: iletişim kutuları + sosyal -->
+      <div style="flex:1; min-width:260px;">
+        <div style="background:#111; border:1px solid #2a2a2a; border-radius:12px; padding:20px; margin-bottom:15px;">
+          <h4 style="color:white; margin-bottom:8px;">Adres</h4>
+          <p style="color:#b5b5b5; font-size:14px; margin:0;">Pamukkale / Denizli</p>
+        </div>
+
+        <div style="background:#111; border:1px solid #2a2a2a; border-radius:12px; padding:20px; margin-bottom:15px;">
+          <h4 style="color:white; margin-bottom:8px;">E-posta</h4>
+          <p style="color:#b5b5b5; font-size:14px; margin:0;">s.emre.b20@gmail.com</p>
+        </div>
+
+        <div style="background:#111; border:1px solid #2a2a2a; border-radius:12px; padding:20px; margin-bottom:20px;">
+          <h4 style="color:white; margin-bottom:8px;">Telefon</h4>
+          <p style="color:#b5b5b5; font-size:14px; margin:0;">+90 544 716 72 97</p>
+        </div>
+
+        <div style="margin-top:10px;">
+          <a href="#" style="color:#fff; margin-right:10px; text-decoration:none;">Instagram</a>
+          <a href="#" style="color:#fff; margin-right:10px; text-decoration:none;">LinkedIn</a>
+          <a href="mailto:info@boranagency.com" style="color:#fff; text-decoration:none;">Mail</a>
+        </div>
+      </div>
+
+      <!-- Sağ blok: form -->
+      <div style="flex:1; min-width:260px;">
+        <form action="#" method="post" style="background:#111; border:1px solid #2a2a2a; border-radius:12px; padding:25px;">
+          <div style="margin-bottom:15px;">
+            <label style="display:block; color:#ddd; font-size:13px; margin-bottom:5px;">Ad Soyad</label>
+            <input type="text" name="name" placeholder="Adınız" 
+                   style="width:100%; padding:10px; border-radius:6px; border:1px solid #333; background:#0a0a0a; color:#fff;">
+          </div>
+
+          <div style="margin-bottom:15px;">
+            <label style="display:block; color:#ddd; font-size:13px; margin-bottom:5px;">E-posta</label>
+            <input type="email" name="email" placeholder="ornek@mail.com" 
+                   style="width:100%; padding:10px; border-radius:6px; border:1px solid #333; background:#0a0a0a; color:#fff;">
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label style="display:block; color:#ddd; font-size:13px; margin-bottom:5px;">Mesaj</label>
+            <textarea name="message" rows="4" placeholder="Kısaca projenizden bahsedin..." 
+                      style="width:100%; padding:10px; border-radius:6px; border:1px solid #333; background:#0a0a0a; color:#fff; resize:vertical;"></textarea>
+          </div>
+
+          <button type="submit" 
+                  style="width:100%; padding:12px; border:none; border-radius:999px; background:#f5f5f5; color:#000; font-weight:600; cursor:pointer;">
+            Mesaj Gönder
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   <!-- HİZMETLER -->
+<section id="services" style="padding:100px 0; background:#0a0a0a;">
+  <div style="max-width:1200px; margin:auto; padding:0 40px; text-align:center;">
+    <h2 style="font-size:36px; letter-spacing:2px; text-transform:uppercase; margin-bottom:60px; color:#f5f5f5;">
+      Hizmetlerimiz
+    </h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;">
+      
+      <div style="background:#111; border:1px solid #2a2a2a; border-radius:16px; padding:30px; text-align:left;">
+        <h3 style="color:white; font-size:20px; margin-bottom:10px;">Sosyal Medya Yönetimi</h3>
+        <p style="color:#b5b5b5; font-size:14px; line-height:1.6;">
+          Instagram, TikTok ve Facebook sayfalarınız için profesyonel içerik planı, 
+          post – reels – hikâye üretimi ve etkileşim stratejileri.
+        </p>
+      </div>
+
+      <div style="background:#111; border:1px solid #2a2a2a; border-radius:16px; padding:30px; text-align:left;">
+        <h3 style="color:white; font-size:20px; margin-bottom:10px;">Reklam & Performans Pazarlama</h3>
+        <p style="color:#b5b5b5; font-size:14px; line-height:1.6;">
+          Meta, Google, TikTok Ads gibi platformlarda bütçe yönetimi, hedefleme ve ROI odaklı kampanyalarla sonuç odaklı reklam performansı.
+        </p>
+      </div>
+
+      <div style="background:#111; border:1px solid #2a2a2a; border-radius:16px; padding:30px; text-align:left;">
+        <h3 style="color:white; font-size:20px; margin-bottom:10px;">Marka & Tasarım</h3>
+        <p style="color:#b5b5b5; font-size:14px; line-height:1.6;">
+          Logo, kurumsal kimlik, ambalaj ve dijital tasarımlarla markanızı güçlü ve tutarlı bir şekilde temsil ediyoruz.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  </div>
+<script>
+  const fadeElements = document.querySelectorAll('.fade-in');
+  function checkFade() {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', checkFade);
+  window.addEventListener('load', checkFade);
+</script>
+<!-- YUKARI ÇIK BUTONU -->
+<button id="scrollTopBtn" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.4s ease;
+">↑</button>
+<script>
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    scrollBtn.style.opacity = "1";
+  } else {
+    scrollBtn.style.opacity = "0";
+  }
+};
+
+scrollBtn.onclick = function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+</script>
+
+</body>
+</html>
